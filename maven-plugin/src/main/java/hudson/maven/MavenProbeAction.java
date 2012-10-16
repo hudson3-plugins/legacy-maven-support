@@ -107,7 +107,7 @@ public final class MavenProbeAction implements Action {
         if(text!=null) {
             try {
                 req.setAttribute("output",
-                RemotingDiagnostics.executeGroovy(text,channel));
+                RemotingDiagnostics.executeScript(text,channel));
             } catch (InterruptedException e) {
                 throw new ServletException(e);
             }

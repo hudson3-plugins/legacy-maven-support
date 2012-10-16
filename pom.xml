@@ -10,22 +10,23 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.jvnet.hudson.main</groupId>
-    <artifactId>hudson</artifactId>
-    <version>2.2.0</version>
+    <groupId>org.eclipse.hudson</groupId>
+    <artifactId>hudson-parent</artifactId>
+    <version>3.0.0-RC3</version>
     <relativePath />
   </parent>
 
-  <!-- TODO: Should really give these modules their own groupId -->
 
+  <groupId>org.hudsonci.plugins</groupId>
   <artifactId>hudson-maven-legacy</artifactId>
-  <version>2.2.3-SNAPSHOT</version>
+  <version>3.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Hudson :: Maven (legacy)</name>
   <description>Hudson Legacy Maven Integration</description>
 
   <properties>
-    <hudson.core.version>2.2.0</hudson.core.version>
+    <hudson.core.version>3.0.0-RC3</hudson.core.version>
+    <hudson.remoting.version>3.0.0</hudson.remoting.version>
     <mavenVersion>3.0.2</mavenVersion>
     <maven.version>${mavenVersion}</maven.version>
     <aetherVersion>${aether.version}</aetherVersion>
@@ -36,9 +37,9 @@
   </properties>
 
   <scm>
-    <connection>scm:git:git://github.com/hudson-plugins/legacy-maven-support.git</connection>
-    <developerConnection>scm:git:git@github.com:hudson-plugins/legacy-maven-support.git</developerConnection>
-    <url>https://github.com/hudson-plugins/legacy-maven-support</url>
+    <connection>scm:git:git://github.com/hudson3-plugins/legacy-maven-support.git</connection>
+    <developerConnection>scm:git:git@github.com:hudson3-plugins/legacy-maven-support.git</developerConnection>
+    <url>https://github.com/hudson3-plugins/legacy-maven-support</url>
   </scm>
 
   <modules>
@@ -145,25 +146,25 @@
       <!-- INTERNAL -->
 
       <dependency>
-        <groupId>org.jvnet.hudson.main</groupId>
+        <groupId>org.hudsonci.plugins</groupId>
         <artifactId>maven-agent</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
-        <groupId>org.jvnet.hudson.main</groupId>
+        <groupId>org.hudsonci.plugins</groupId>
         <artifactId>maven-interceptor</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
-        <groupId>org.jvnet.hudson.main</groupId>
+        <groupId>org.hudsonci.plugins</groupId>
         <artifactId>maven3-agent</artifactId>
         <version>${project.version}</version>
       </dependency>
 
       <dependency>
-        <groupId>org.jvnet.hudson.main</groupId>
+        <groupId>org.hudsonci.plugins</groupId>
         <artifactId>maven3-interceptor</artifactId>
         <version>${project.version}</version>
       </dependency>

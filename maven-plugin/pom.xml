@@ -25,9 +25,9 @@ THE SOFTWARE.
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.jvnet.hudson.main</groupId>
+        <groupId>org.hudsonci.plugins</groupId>
         <artifactId>hudson-maven-legacy</artifactId>
-        <version>2.2.3-SNAPSHOT</version>
+        <version>3.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
@@ -43,6 +43,7 @@ THE SOFTWARE.
     </description>
 
     <url>http://wiki.hudson-ci.org/display/HUDSON/Maven+2+Project+Plugin</url>
+    
     <scm>
         <connection>scm:git:git://github.com/hudson-plugins/legacy-maven-support.git</connection>
         <developerConnection>scm:git:git@github.com:hudson-plugins/legacy-maven-support.git</developerConnection>
@@ -64,12 +65,12 @@ THE SOFTWARE.
         <hudson-maven-embedder.version>3.2</hudson-maven-embedder.version>
         <wagon-webdav.version>1.0-beta-2-hudson-1</wagon-webdav.version>
         <nekohtml.version>1.9.13</nekohtml.version>
-        <hudsonTags>builder</hudsonTags>
+        <hudsonTags>maven</hudsonTags>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.jvnet.hudson.main</groupId>
+            <groupId>org.eclipse.hudson</groupId>
             <artifactId>hudson-core</artifactId>
             <version>${hudson.core.version}</version>
             <scope>provided</scope>
@@ -86,9 +87,9 @@ THE SOFTWARE.
         </dependency>
     
         <dependency>
-            <groupId>org.jvnet.hudson.main</groupId>
+            <groupId>org.eclipse.hudson</groupId>
             <artifactId>hudson-remoting</artifactId>
-            <version>${hudson.core.version}</version>
+            <version>${hudson.remoting.version}</version>
             <scope>provided</scope>
         </dependency>
 
@@ -99,7 +100,7 @@ THE SOFTWARE.
         </dependency>
     
         <dependency>
-            <groupId>org.jvnet.hudson.main</groupId>
+            <groupId>org.hudsonci.plugins</groupId>
             <artifactId>maven-agent</artifactId>
             <exclusions>
                 <exclusion>
@@ -110,7 +111,7 @@ THE SOFTWARE.
         </dependency>
      
         <dependency>
-            <groupId>org.jvnet.hudson.main</groupId>
+            <groupId>org.hudsonci.plugins</groupId>
             <artifactId>maven-interceptor</artifactId>
             <exclusions>
                 <exclusion>
@@ -127,12 +128,12 @@ THE SOFTWARE.
         </dependency>
     
         <dependency>
-            <groupId>org.jvnet.hudson.main</groupId>
+            <groupId>org.hudsonci.plugins</groupId>
             <artifactId>maven3-agent</artifactId>
         </dependency>    
     
         <dependency>
-            <groupId>org.jvnet.hudson.main</groupId>
+            <groupId>org.hudsonci.plugins</groupId>
             <artifactId>maven3-interceptor</artifactId>
         </dependency>    
     
