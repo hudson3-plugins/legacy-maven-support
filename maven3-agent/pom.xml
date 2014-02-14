@@ -8,7 +8,7 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>maven3-agent</artifactId>
-  <name>Hudson :: Maven (legacy) :: M3 Agent</name>
+  <name>Legacy Maven Plugin M3 Agent</name>
   
   <dependencies>
     <dependency>

@@ -255,7 +255,7 @@ public final class MavenModuleSet extends AbstractMavenProject<MavenModuleSet,Ma
     }
 
     @Override   // to make this accessible from MavenModuleSetBuild
-    protected void updateTransientActions() {
+    public void updateTransientActions() {
         super.updateTransientActions();
     }
 

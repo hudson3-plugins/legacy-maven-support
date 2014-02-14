@@ -12,7 +12,7 @@
   <parent>
     <groupId>org.eclipse.hudson</groupId>
     <artifactId>hudson-parent</artifactId>
-    <version>3.0.0</version>
+    <version>3.1.2</version>
     <relativePath />
   </parent>
 
@@ -21,11 +21,11 @@
   <artifactId>hudson-maven-legacy</artifactId>
   <version>3.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Hudson :: Maven (legacy)</name>
+  <name>Legacy Maven plugin parent</name>
   <description>Hudson Legacy Maven Integration</description>
 
   <properties>
-    <hudson.core.version>3.0.0-RC3</hudson.core.version>
+    <hudson.core.version>3.1.2</hudson.core.version>
     <hudson.remoting.version>3.0.0</hudson.remoting.version>
     <mavenVersion>3.0.2</mavenVersion>
     <maven.version>${mavenVersion}</maven.version>

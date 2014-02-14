@@ -393,7 +393,7 @@ public final class MavenModule extends AbstractMavenProject<MavenModule,MavenBui
     }
 
     @Override // to make this accessible to MavenModuleSet
-    protected void updateTransientActions() {
+    public void updateTransientActions() {
         super.updateTransientActions();
     }
 

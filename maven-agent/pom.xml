@@ -33,7 +33,7 @@ THE SOFTWARE.
   
   <artifactId>maven-agent</artifactId>
   <packaging>jar</packaging>
-  <name>Hudson :: Maven (legacy) :: M2 Agent</name>
+  <name>Legacy maven plugin M2 Agent</name>
   <description>
     Code that boots up Maven2 with Hudson's remoting support in place.
     Used for the native maven support.
