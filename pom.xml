@@ -19,7 +19,7 @@
 
   <groupId>org.hudsonci.plugins</groupId>
   <artifactId>hudson-maven-legacy</artifactId>
-  <version>3.0.1-SNAPSHOT</version>
+  <version>3.0.1</version>
   <packaging>pom</packaging>
   <name>Legacy Maven plugin parent</name>
   <description>Hudson Legacy Maven Integration</description>
