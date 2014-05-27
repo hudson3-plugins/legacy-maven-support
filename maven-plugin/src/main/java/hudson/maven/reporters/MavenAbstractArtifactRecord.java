@@ -42,16 +42,14 @@ import hudson.security.Permission;
 import hudson.util.Iterators;
 import hudson.widgets.HistoryWidget;
 import hudson.widgets.HistoryWidget.Adapter;
-
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.nio.charset.Charset;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.concurrent.CopyOnWriteArrayList;
-
 import javax.servlet.ServletException;
-
 import org.apache.maven.artifact.deployer.ArtifactDeploymentException;
 import org.apache.maven.artifact.repository.ArtifactRepository;
 import org.apache.maven.artifact.repository.ArtifactRepositoryFactory;
@@ -59,7 +57,9 @@ import org.apache.maven.artifact.repository.layout.ArtifactRepositoryLayout;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
 import org.kohsuke.stapler.HttpRedirect;
 import org.kohsuke.stapler.HttpResponse;
+import org.kohsuke.stapler.HttpResponses;
 import org.kohsuke.stapler.QueryParameter;
+import org.kohsuke.stapler.Stapler;
 import org.kohsuke.stapler.StaplerRequest;
 import org.kohsuke.stapler.StaplerResponse;
 
@@ -197,6 +197,11 @@ public abstract class MavenAbstractArtifactRecord<T extends AbstractBuild<?,?>> 
             @QueryParameter("_.url") final String repositoryUrl,
             @QueryParameter("_.uniqueVersion") final boolean uniqueVersion) throws ServletException, IOException {
         getACL().checkPermission(REDEPLOY);
+        
+        StaplerRequest req = Stapler.getCurrentRequest();
+        if (!"POST".equals(req.getMethod())) {
+            throw HttpResponses.error(HttpURLConnection.HTTP_BAD_METHOD, "requires POST");
+        }
 
         File logFile = new File(getBuild().getRootDir(),"maven-deployment."+records.size()+".log");
         final Record record = new Record(repositoryUrl, logFile.getName());

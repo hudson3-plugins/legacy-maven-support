@@ -37,7 +37,9 @@ import org.kohsuke.stapler.WebMethod;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.Map;
+import org.kohsuke.stapler.HttpResponses;
 
 /**
  * UI for probing Maven process.
@@ -99,17 +101,22 @@ public final class MavenProbeAction implements Action {
     }
 
     public void doScript( StaplerRequest req, StaplerResponse rsp ) throws IOException, ServletException {
+        if (!"POST".equals(req.getMethod())) {
+            throw HttpResponses.error(HttpURLConnection.HTTP_BAD_METHOD, "requires POST");
+        }
         // ability to run arbitrary script is dangerous,
         // so tie it to the admin access
         owner.checkPermission(Hudson.ADMINISTER);
-
-        String text = req.getParameter("script");
-        if(text!=null) {
-            try {
-                req.setAttribute("output",
-                RemotingDiagnostics.executeScript(text,channel));
-            } catch (InterruptedException e) {
-                throw new ServletException(e);
+        
+        if (Hudson.getInstance().getScriptSupport() != null) {
+            String text = req.getParameter("script");
+            if (text != null) {
+                try {
+                    req.setAttribute("output",
+                    RemotingDiagnostics.executeScript(text, channel, Hudson.getInstance().getScriptSupport()));
+                } catch (InterruptedException e) {
+                    throw new ServletException(e);
+                }
             }
         }
 
